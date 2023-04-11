@@ -9,7 +9,7 @@
     "export": "next build && next export",
     "storybook": "storybook dev -p 6006",
     "pull": "cp /tmp/app/package* /workspaces/airview-mdx/ && cp /tmp/app/yarn* /workspaces/airview-mdx/",
-    "install": "cp /workspaces/airview-mdx/package* /tmp/app/ && cp /workspaces/airview-mdx/yarn* /tmp/app/ && cd /tmp/app && yarn && cp /tmp/app/package* /workspaces/airview-mdx/ && cp /tmp/app/yarn* /workspaces/airview-mdx/",
+    "install-packages": "cp /workspaces/airview-mdx/package* /tmp/app/ && cp /workspaces/airview-mdx/yarn* /tmp/app/ && cd /tmp/app && yarn && cp /tmp/app/package* /workspaces/airview-mdx/ && cp /tmp/app/yarn* /workspaces/airview-mdx/",
     "build-storybook": "storybook build"
   },
   "dependencies": {
