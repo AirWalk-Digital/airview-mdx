@@ -1,0 +1,29 @@
+// See https://aka.ms/vscode-remote/devcontainer.json for format details or
+// https://aka.ms/vscode-dev-containers/definitions for sample configurations.
+{
+	"name": "Airview MDX Components",
+	"dockerFile": "Dockerfile.vscode",
+	"remoteUser": "vscode",
+	"mounts": [
+		"source=/home/ubuntu/vscode/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached"
+	  ],
+	"forwardPorts": [8080],
+
+	"customizations": {
+		"codespaces": {
+		"openFiles": ["README.md", "src/pages/presentation.mdx"]
+		}
+	},
+		
+
+	"portsAttributes": {
+		"6006": {
+			"label": "Storybook",
+			"onAutoForward":"ignore"
+		}
+	},
+	"postCreateCommand": "",
+	"postAttachCommand": {
+		"fix npm" : "rm -Rf /workspaces/airview-mdx/node_modules && ln -s /tmp/app/node_modules /workspaces/airview-mdx/node_modules"
+		
+}

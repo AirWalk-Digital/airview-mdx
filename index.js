@@ -14,7 +14,7 @@ import {
   // Dummy as FaIcon,
   // Dummy as ProgressTable,
   Dummy as TitleSlide
-} from './dummy.js'; 
+} from './components/dummy.js'; 
 
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import okaidia from "react-syntax-highlighter/dist/cjs/styles/prism/okaidia";
@@ -26,14 +26,14 @@ import { Card, CardContent, CardHeader, Alert, Typography } from '@mui/material'
 
 // Custom components
 
-import { InsightTable, Insight, ChevronProcess, ChevronProcessTable, StatementBanner, Roadmap } from './Playback';
-import {FaIcon, Icon, Team} from './Images.jsx';
-import { ProgressTable } from './Tables.jsx';
-import { HeaderCard, Nest } from './Cards';
-import { Font } from './Styling';
-import { MermaidDiagram } from './Diagrams.jsx';
+import { InsightTable, Insight, ChevronProcess, ChevronProcessTable, StatementBanner, Roadmap } from './components/Playback';
+import {FaIcon, Icon, Team} from './components/Images';
+import { ProgressTable } from './components/Tables';
+import { HeaderCard, Nest } from './components/Cards';
+import { Font } from './components/Styling';
+import { MermaidDiagram } from './components/Diagrams';
 // Layouts 
-import {Layout, Column, Item } from './Layouts';
+import {Layout, Column, Item } from './components/Layouts';
 
 
 const CustomList = (props) => {
