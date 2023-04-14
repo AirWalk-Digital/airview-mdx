@@ -13,5 +13,12 @@ const config: StorybookConfig = {
   docs: {
     autodocs: "tag",
   },
+  webpackFinal: async (config) => {
+    config.resolve.fallback = {
+      ...config.resolve.fallback,
+      "os": false
+    };
+    return config;
+  }
 };
 export default config;
