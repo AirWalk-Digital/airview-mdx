@@ -9,23 +9,18 @@ import Grid from '@mui/material/Grid';
 
 import { useTheme } from '@mui/material/styles';
 
-// import { library } from '@fortawesome/fontawesome-svg-core';
-// import { fab } from '@fortawesome/free-brands-svg-icons';
-// import { fas } from '@fortawesome/pro-solid-svg-icons';
-// import { fal } from '@fortawesome/pro-light-svg-icons';
-// import { fass } from '@fortawesome/sharp-solid-svg-icons';
 
 import { Icon } from './Images.jsx'
 import { getContrastYIQ } from './utils/colors.js';
 
-const faTypes = ["fal", "fas", "fab", "fad"];
 
 // fal -> light
 // fas -> solid
 // fab -> brands
 // fad -> duotone (pro only)
 // fass -> sharp
-// library.add(fab, fas, fal, fass);
+
+const faTypes = ["fal", "fas", "fab", "fad"];
 
 
 function getListContent(content, i) {

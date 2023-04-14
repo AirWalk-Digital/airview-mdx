@@ -78,7 +78,7 @@ Default.args = {
 Default.parameters = {
   docs: {
     source: {
-      code: "Disabled for this story, see https://github.com/storybookjs/storybook/issues/11554"
+      // code: "Disabled for this story, see https://github.com/storybookjs/storybook/issues/11554"
     }
   }
 }

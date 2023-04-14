@@ -2,11 +2,30 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import { getListFromContent } from './utils/mdxProcessor';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+import { library } from '@fortawesome/fontawesome-svg-core';
+// import { fab } from '@fortawesome/free-brands-svg-icons';
+// import { fas } from '@fortawesome/pro-solid-svg-icons';
+import { fas } from '@fortawesome/free-solid-svg-icons'
+
+// import { fal } from '@fortawesome/pro-light-svg-icons';
+// import { fass } from '@fortawesome/sharp-solid-svg-icons';
+
+
 // fal -> light
 // fas -> solid
 // fab -> brands
 // fad -> duotone (pro only)
-const faTypes = ["fal", "fas", "fab", "fad"];
+// fass -> sharp
+// library.add(fab, fas, fal, fass);
+library.add(fas);
+
+
+// fal -> light
+// fas -> solid
+// fab -> brands
+// fad -> duotone (pro only)
+const faTypes = ["fal", "fas", "fab", "fad", "fa-solid"];
 
 
 const FaIcon = ({ children, text = "", sx = {}, ...props }) => {
@@ -20,7 +39,7 @@ const FaIcon = ({ children, text = "", sx = {}, ...props }) => {
 
 };
 
-const Icon = ({ children, type = "fal", size = '75px', sx = {}, ...props }) => {
+const Icon = ({ children, type = 'fas', size = '75px', sx = {}, ...props }) => {
   let icon = ""
   let kiticon = "fak fa-" + children
 
@@ -34,7 +53,11 @@ const Icon = ({ children, type = "fal", size = '75px', sx = {}, ...props }) => {
       icon = <Box sx={{ ...sx }}><i className={kiticon} style={{ width: size, height: size }}></i></Box>;
       // console.log(icon)
     } else if (faTypes.indexOf(type) > -1) {
-      icon = <Box sx={{ ...sx }}><FontAwesomeIcon icon={[type, children]} style={{ width: size, height: size }} /></Box>;
+      if (type = 'fas') {
+        icon = <Box sx={{ ...sx }}><FontAwesomeIcon icon={['fas', 'fa-' + children]} style={{ width: size, height: size }} /></Box>;
+      } else if (type = 'fal') {
+        icon = <Box sx={{ ...sx }}><FontAwesomeIcon icon={['fal', 'fa-' + children]} style={{ width: size, height: size }} /></Box>;
+      }
     }
   };
   return (icon);
