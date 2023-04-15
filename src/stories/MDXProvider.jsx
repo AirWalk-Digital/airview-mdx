@@ -25,7 +25,12 @@ import Alert from '@mui/material/Alert';
 // Custom components
 
 // import { Header, Banner, Footer } from './HeaderFooter';
-import { InsightTable, Insight, ChevronProcess, ChevronProcessTable, StatementBanner, Roadmap } from './Playback';
+// import { InsightTable, Insight, ChevronProcess, ChevronProcessTable, StatementBanner, Roadmap } from './Playback';
+import { Insights } from './Insights';
+import { Chevrons } from './Chevrons';
+import { Roadmap } from './Roadmap';
+import { Banner } from './Banner';
+
 // import {FaIcon, Icon} from './Images.jsx';
 // import { ProgressTable } from './Tables.jsx';
 // import { HeaderCard, Nest } from './Cards';
@@ -79,7 +84,8 @@ export const mdComponents = {
   // Header,
   // Banner,
   // Footer,
-  InsightTable, Insight, ChevronProcess, ChevronProcessTable, StatementBanner, Roadmap,
+  Insights, Chevrons, Roadmap,
+  Banner, 
   // FaIcon, Icon,
   // ProgressTable,
   // HeaderCard, Nest,

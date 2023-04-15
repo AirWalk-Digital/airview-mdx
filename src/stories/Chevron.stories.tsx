@@ -1,18 +1,18 @@
 import React from 'react';
-import { Insight, InsightTable } from './Playback';
+import { Chevrons } from './Chevrons';
 import MDXProvider, { mdComponents } from './MDXProvider';
 
 import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
-
+import { StoryFn, Meta } from '@storybook/react';
 import { useState, useEffect } from 'react';
 
 import remarkGfm from "remark-gfm";
 import remarkUnwrapImages from 'remark-unwrap-images';
 
 export default {
-  title: 'Components/InsightTable',
-  component: InsightTable,
+  title: 'Components/Chevrons',
+  component: Chevrons,
   tags: ['autodocs'],
   argTypes: {
     color: {
@@ -20,29 +20,43 @@ export default {
       control: { type: 'select' },
     },
   },
-};
+  parameters: {
+    docs: {
+      source: {
+        code: `<Chevrons></Chevrons>`,
+        language: 'mdx',
+        type: 'code'
+      }
+  
+    }
+  }
+} as Meta;;
 
-const Template = ({ children, ...args }) => {
+interface TemplateProps extends Args {
+  children: React.ReactNode;
+}
+
+const Template: StoryFn<TemplateProps> = ({ children, ...args }) => {
+// function Template({ children, ...args }) {
   const [mdxContent, setMdxContent] = useState(null);
 
   const mdx = `
-<InsightTable>
+<Chevrons ${getAttributes(args)}>
 ${children}
-</InsightTable>
+</Chevrons>
 `;
 
   useEffect(() => {
     const serializeMdx = async () => {
 
-          
+
       const MDXoptions = {
         remarkPlugins: [remarkGfm, remarkUnwrapImages],
         format: 'mdx',
         development: true
-
       };
       try {
-        const mdxSource = await serialize(mdx, { scope: {}, mdxOptions: { ...MDXoptions }, parseFrontmatter: true })
+        const mdxSource = await serialize(mdx, { scope: {}, mdxOptions: { ...MDXoptions }, parseFrontmatter: true });
         setMdxContent(mdxSource);
 
       } catch (error) {
@@ -55,14 +69,25 @@ ${children}
 
 
   if (!mdxContent) {
-    return <MDXProvider ><h1>....loading</h1></MDXProvider>;
+    return <MDXProvider><h1>....loading</h1></MDXProvider>;
   } else {
-    
+
     // return <MDXProvider ><HeaderCard {...args}><MDXRemote {...mdxContent} components={mdComponents} /></HeaderCard></MDXProvider>;
-    return <MDXProvider><MDXRemote compiledSource={mdxContent.compiledSource} components={mdComponents}/></MDXProvider>;
+    return <MDXProvider><MDXRemote compiledSource={mdxContent.compiledSource} components={mdComponents} /></MDXProvider>;
     // return  <MDXProvider><h1>test</h1></MDXProvider>
   }
-};
+}
+
+function getAttributes(args: Args): string {
+  let result = '';
+  for (const [key, value] of Object.entries(args)) {
+    if (value !== undefined && value !== null && key !== 'children') {
+      result += ` ${key}="${value}"`;
+    }
+  }
+  console.log('getAttributes :', result)
+  return result;
+}
 
 
 export const Default = Template.bind({});
@@ -75,13 +100,7 @@ Default.args = {
   ),
   color: 'secondary',
 };
-Default.parameters = {
-  docs: {
-    source: {
-      // code: "Disabled for this story, see https://github.com/storybookjs/storybook/issues/11554"
-    }
-  }
-}
+
 
 export const MultiRow = Template.bind({});
 MultiRow.args = {
@@ -101,10 +120,22 @@ MultiRow.args = {
   ),
   color: 'secondary',
 };
-MultiRow.parameters = {
-  docs: {
-    source: {
-      code: "Disabled for this story, see https://github.com/storybookjs/storybook/issues/11554"
-    }
-  }
-}
+
+export const NoSplitter = Template.bind({});
+NoSplitter.args = {
+  children: (
+`- star
+  - star Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eu ipsum enim.
+  - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eu ipsum enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eu ipsum enim.
+
+- user-secret
+  - user-secret Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eu ipsum enim.
+  - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eu ipsum enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eu ipsum enim.
+
+- chart-pie
+  - chart-pie Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eu ipsum enim.
+  - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eu ipsum enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eu ipsum enim.
+`
+  ),
+  splitter: 'false',
+};

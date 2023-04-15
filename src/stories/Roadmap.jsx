@@ -344,6 +344,9 @@ const StatementBanner = ({ children, sx = {}, ...props }) => {
 
 
 const InsightTable = ({ children, sx = {}, splitter = true, ...props }) => {
+
+    console.log('InsightTable:children: ', children)
+
     if (children.hasOwnProperty('props')) {
         let list = React.Children.toArray(children.props.children);
         list = list.filter(item => item !== "\n") //strip all the empty entries (\n)
