@@ -4,7 +4,7 @@ import MDXProvider, { mdComponents } from './MDXProvider';
 
 import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
-import { StoryFn, Meta } from '@storybook/react';
+import { StoryFn, Meta, Args } from '@storybook/react';
 import { useState, useEffect } from 'react';
 
 import remarkGfm from "remark-gfm";
