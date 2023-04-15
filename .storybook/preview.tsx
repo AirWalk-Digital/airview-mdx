@@ -28,13 +28,9 @@ const preview: Preview = {
         // language: 'md',
         type: 'code',
         transform: (code,args) => {
-          console.log('transformSource:args: ', args)
+          
           return (
-            
-            '<' + args.component.name + getAttributes(args.args) +'/>\n'+
-            args.args.children
-            + '\n</' + args.component.name + '>'
-            
+            getMDX(args)
             ) 
         }
       }
@@ -48,12 +44,14 @@ const preview: Preview = {
       console.log('context:', context)
       const { args } = context;
       const { children } = args;
+      let NotMDX = null;
+      let mdx = null;
 
-      const mdx = `
-        <Banner>
-          ${children}
-        </Banner>
-      `;
+      if (context && context.component.render) {
+        NotMDX = context.component.render
+      } else {
+      mdx = getMDX(context);
+      }
 
       useEffect(() => {
         const serializeMdx = async () => {
@@ -73,6 +71,15 @@ const preview: Preview = {
         serializeMdx();
       }, [mdx]);
 
+      if (NotMDX) {
+        return  <ThemeProvider theme={theme}>
+        <CssBaseline />
+          <MDXProvider>
+            <Story/>
+          </MDXProvider>
+        </ThemeProvider>;
+      }
+
       if (!mdxContent) {
         return <MDXProvider><h1>....loading</h1></MDXProvider>;
       } else {
@@ -89,6 +96,13 @@ const preview: Preview = {
   ],
 };
 
+function getMDX(args: Args): string {
+  return (
+  '<' + args.component.name + getAttributes(args.args) +'>\n'+
+  args.args.children
+  + '\n</' + args.component.name + '>'
+  )
+}
 
 function getAttributes(args: Args): string {
   let result = '';
