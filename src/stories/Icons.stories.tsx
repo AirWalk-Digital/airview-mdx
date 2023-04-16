@@ -1,11 +1,11 @@
 "use client";
 import React from 'react';
-import { Roadmap} from './Roadmap';
+import { Icon } from './Images';
 import { StoryObj, Meta } from '@storybook/react';
 
-const meta: Meta<typeof Roadmap> = {
-  title: 'Components/Roadmap',
-  component: Roadmap,
+const meta: Meta<typeof Icon> = {
+  title: 'Components/Icons',
+  component: Icon,
   tags: ['autodocs'],
   argTypes: {
     color: {
@@ -17,24 +17,23 @@ const meta: Meta<typeof Roadmap> = {
 };
 export default meta;
 
-type Story = StoryObj<typeof Roadmap>;
+type Story = StoryObj<typeof Icon>;
 
 export const Primary: Story = {
   args : {
-    children: (
-`1. Phase 1 *sub text*
-- things to do :
-  - something
-  - something else
-  
-2. Phase 2 *sub text*
-- things to do :
-  - something
-  - something else
-
-`
-        ),
+  children: (
+`star`
+  ),
   color: 'secondary',
 }
 };
 
+
+export const Custom: Story = {
+args : {
+  children: (
+`fak-terraform`
+  ),
+  color: 'secondary',
+}
+};

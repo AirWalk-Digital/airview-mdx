@@ -1,0 +1,23 @@
+.App {
+    display: flex;
+    flex-direction: column;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+  
+  .tech-radar--fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+    background-color: white;
+    max-width: none;
+  }
+  
+  .fullscreen-button {
+    margin-bottom: 1rem;
+  }
+  
