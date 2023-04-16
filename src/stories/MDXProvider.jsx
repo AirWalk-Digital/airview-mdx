@@ -22,6 +22,10 @@ import CardHeader from '@mui/material/CardHeader';
 import { Typography } from '@mui/material';
 import Alert from '@mui/material/Alert';
 
+// 3rd Party Components
+import { Mermaid } from 'mdx-mermaid/Mermaid';
+
+
 // Custom components
 
 // import { Header, Banner, Footer } from './HeaderFooter';
@@ -80,6 +84,8 @@ export const mdComponents = {
   CardContent,
   Card,
   Alert,
+  // ------- 3rd Party Components --------
+  Mermaid,
   // custom component
   // Header,
   // Banner,
