@@ -34,8 +34,9 @@ import { Insights } from './Insights';
 import { Chevrons } from './Chevrons';
 import { Roadmap } from './Roadmap';
 import { Banner } from './Banner';
-
-// import {FaIcon, Icon} from './Images.jsx';
+import { Icon } from './Images';
+import { TechRadar } from './TechRadar'
+// import {FaIcons, CustomIcons} from './Images.jsx';
 // import { ProgressTable } from './Tables.jsx';
 // import { HeaderCard, Nest } from './Cards';
 // import { Font } from './Styling';
@@ -92,7 +93,10 @@ export const mdComponents = {
   // Footer,
   Insights, Chevrons, Roadmap,
   Banner, 
-  // FaIcon, Icon,
+  // FaIcon, 
+  Icon, 
+  TechRadar,
+  // FaIcons, CustomIcons
   // ProgressTable,
   // HeaderCard, Nest,
   // Font,

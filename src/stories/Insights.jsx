@@ -8,87 +8,8 @@ import TableRow from '@mui/material/TableRow';
 import Grid from '@mui/material/Grid'; 
 
 import { useTheme } from '@mui/material/styles';
-
-
 import { Icon } from './Images.jsx'
-import { getContrastYIQ } from './utils/colors.js';
-
-
-// fal -> light
-// fas -> solid
-// fab -> brands
-// fad -> duotone (pro only)
-// fass -> sharp
-
-const faTypes = ["fal", "fas", "fab", "fad"];
-
-
-function getListContent(content, i) {
-
-    content = content.filter(item => item !== "\n") //strip all the empty entries (\n)
-
-    let icon = "";
-    let heading = "";
-    let body = "";
-    let key = i;
-
-    if ((content.hasOwnProperty('type') && content.type == "ul") || (typeof content.type === 'function' && content.type.name === 'ul')) {
-        //passed at a higher level
-        // console.log("((content.hasOwnProperty('type') && content.type == 'ul')|| (typeof content.type === 'function' && content.type.name ==='ul'))");
-        // console.log(content);
-        content = React.Children.toArray(content.props.children);
-
-        if (Array.isArray(content)) {
-            content = content[0];
-        }
-
-        if (content.hasOwnProperty('type') && typeof content.type !== 'function') {
-
-            if (content.type == "li") {
-                content = React.Children.toArray(content.props.children);
-            }
-        }
-    }
-
-
-
-    if (content[0].hasOwnProperty('props') && content[0].props.hasOwnProperty('children')) {
-        icon = content[0].props.children; // icon or primary list item
-
-    } else if (typeof content[0] == "string") {
-        icon = content[0]
-    }
-    if (content[1].hasOwnProperty('props') && content[1].props.hasOwnProperty('children')) {
-        let children = content[1].props.children.filter(item => item !== "\n") //strip all the empty entries (\n)
-        // console.log(children)
-
-        if (children.length > 1) {
-            // there is a header and body
-            if (children[0].hasOwnProperty('props') && children[0].props.hasOwnProperty('children')) {
-                heading = children[0].props.children;
-            }
-            if (children[1].hasOwnProperty('props') && children[1].props.hasOwnProperty('children')) {
-                body = children[1].props.children;
-            }
-        } else { // only body // remap to heading
-            heading = children[0].props.children;
-        }
-
-
-    }
-
-    return ({ key, icon, heading, body });
-
-}
-
-
-function getMDXparts(element) {
-    if (element.hasOwnProperty('props') && element.props.hasOwnProperty('children') && element.hasOwnProperty('type')) {
-        return ({ type: element.type, text: element.props['children'] })
-    } else {
-        return ({ type: '', text: '' });
-    }
-}
+import {getListContent, getMDXparts, faTypes} from './utils/mdxContent.js'
 
 const Insight = ({ children, table = false, row = 0, maxRows = 0, splitter = true, sx = {} }) => {
     const theme = useTheme();
@@ -151,8 +72,6 @@ const Insight = ({ children, table = false, row = 0, maxRows = 0, splitter = tru
         )
     }
 };
-
-
 
 const Insights = ({ children, sx = {}, splitter = true, ...props }) => {
 
