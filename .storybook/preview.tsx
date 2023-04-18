@@ -58,7 +58,7 @@ const preview: Preview = {
           const MDXoptions = {
             remarkPlugins: [remarkGfm, remarkUnwrapImages],
             format: 'mdx',
-            development: true
+            development: process.env.NODE_ENV === 'development',
           };
           try {
             const mdxSource = await serialize(mdx, { scope: {}, mdxOptions: { ...MDXoptions }, parseFrontmatter: true });
