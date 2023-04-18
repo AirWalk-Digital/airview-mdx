@@ -18,21 +18,20 @@ const meta: Meta<typeof TechRadar> = {
 export default meta;
 
 type Story = StoryObj<typeof TechRadar>;
-
-export const quadrantsData = [
-  { name: "Languages" },
+const ctxProps = {
+quadrants: [
+  { name: "Languasssges" },
   { name: "Infrastructure" },
   { name: "Datastores" },
   { name: "Data Management" },
-]
-export const ringsData = [
+],
+rings : [
   { name: "ADOPT", color: "#5ba300" },
   { name: "TRIAL", color: "#009eb0" },
   { name: "ASSESS", color: "#c7ba00" },
-  { name: "HOLD", color: "#e09b96" }
-]
-
-export const entriesData = [
+  { name: "HOLdD", color: "#e09b96" }
+],
+entries : [
     {
       "quadrant": 3,
       "ring": 2,
@@ -570,7 +569,7 @@ export const entriesData = [
       "moved": 0
     }
   ]
-
+}
 export const Primary: Story = {
   // args : {
 
@@ -579,7 +578,21 @@ export const Primary: Story = {
 // }
 };
 
-
+export const Test: Story = (args) => (
+  <TechRadar {...args} {...ctxProps} />
+)
+Test.args = {
+    title: "Tech Radar",
+    print_layout: true,
+    links_in_new_tabs: true,
+}
+Test.argTypes = {
+  quadrants: {
+    name: "list of quadrants",
+    description: "quadrants",
+    control: { type: "object" },
+  },
+}
 export const Complex: Story = {
   args : {
 
