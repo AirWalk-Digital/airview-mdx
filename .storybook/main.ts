@@ -13,6 +13,7 @@ const config: StorybookConfig = {
   docs: {
     autodocs: "tag",
   },
+  staticDirs: ['../src/public'],
   webpackFinal: async (config) => {
     config.resolve.fallback = {
       ...config.resolve.fallback,
