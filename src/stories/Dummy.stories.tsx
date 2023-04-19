@@ -1,20 +1,23 @@
-import { Banner } from './Banner';
+"use client";
+import React from 'react';
+import { Dummy } from './Dummy';
 import { StoryObj, Meta } from '@storybook/react';
 
-const meta: Meta<typeof Banner> = {
-  title: 'Components/Banner',
-  component: Banner,
+const meta: Meta<typeof Dummy> = {
+  title: 'Components/Dummy',
+  component: Dummy,
   tags: ['autodocs'],
   argTypes: {
     color: {
       options: ['primary', 'secondary', 'tertiary', 'quaternary', 'highlight', 'accent', 'muted', 'paper'],
       control: { type: 'select' },
     }
-  },  
+  },
+  
 };
 export default meta;
 
-type Story = StoryObj<typeof Banner>;
+type Story = StoryObj<typeof Dummy>;
 
 export const Primary: Story = {
   args: {

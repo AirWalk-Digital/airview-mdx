@@ -4,7 +4,7 @@ import { Mermaid } from 'mdx-mermaid/Mermaid';
 import { StoryObj, Meta } from '@storybook/react';
 
 const meta: Meta<typeof Alert> = {
-  title: 'Other/Mermaid',
+  title: 'Visualisation/Mermaid',
   component: Mermaid,
   //👇 Enables auto-generated documentation for the component story
   tags: ['autodocs'],

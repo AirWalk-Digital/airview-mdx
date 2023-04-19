@@ -34,17 +34,21 @@ import { Insights } from './Insights';
 import { Chevrons } from './Chevrons';
 import { Roadmap } from './Roadmap';
 import { Banner } from './Banner';
+
+import { Dummy } from './Dummy';
+
 import { Icon } from './Images';
 import { TechRadar } from './TechRadar'
 // import {FaIcons, CustomIcons} from './Images.jsx';
 // import { ProgressTable } from './Tables.jsx';
-// import { HeaderCard, Nest } from './Cards';
+import { HeaderCard } from './HeaderCard';
+import { Nest } from './Nest';
 // import { Font } from './Styling';
 // import { MermaidDiagram } from "./Diagrams";
 
 // Layouts 
-// import {Layout, Column, Item } from './Layouts';
-// import { TitleSlide } from "../layouts/TitleLayout";
+import {Layout, Column, Item } from './Layouts';
+import { TitleSlide } from './TitleSlide';
 
 export const mdComponents = {
   h1: (props) => <Typography variant="h1">{props.children}</Typography>,
@@ -92,18 +96,19 @@ export const mdComponents = {
   // Banner,
   // Footer,
   Insights, Chevrons, Roadmap,
-  Banner, 
+  Banner,
+  Dummy,
   // FaIcon, 
   Icon, 
   TechRadar,
   // FaIcons, CustomIcons
   // ProgressTable,
-  // HeaderCard, Nest,
+  HeaderCard, Nest,
   // Font,
   // MermaidDiagram,
-  // layouts
-  // TitleSlide,
-  // Layout, Column, Item
+  // ------------ Layouts -----------
+  TitleSlide,
+  Layout, Column, Item
 };
 
 export default ({ children }) => (
