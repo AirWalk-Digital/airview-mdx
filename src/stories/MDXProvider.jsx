@@ -41,7 +41,8 @@ import { Icon } from './Images';
 import { TechRadar } from './TechRadar'
 // import {FaIcons, CustomIcons} from './Images.jsx';
 // import { ProgressTable } from './Tables.jsx';
-// import { HeaderCard, Nest } from './Cards';
+import { HeaderCard } from './HeaderCard';
+import { Nest } from './Nest';
 // import { Font } from './Styling';
 // import { MermaidDiagram } from "./Diagrams";
 
@@ -102,7 +103,7 @@ export const mdComponents = {
   TechRadar,
   // FaIcons, CustomIcons
   // ProgressTable,
-  // HeaderCard, Nest,
+  HeaderCard, Nest,
   // Font,
   // MermaidDiagram,
   // layouts

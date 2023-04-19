@@ -1,8 +1,5 @@
-"use client";
-import React from 'react';
 import { Banner } from './Banner';
 import { StoryObj, Meta } from '@storybook/react';
-import { Wrapper } from './utils/useMdxSerializer.js'
 
 const meta: Meta<typeof Banner> = {
   title: 'Components/Banner',
@@ -13,15 +10,7 @@ const meta: Meta<typeof Banner> = {
       options: ['primary', 'secondary', 'tertiary', 'quaternary', 'highlight', 'accent', 'muted', 'paper'],
       control: { type: 'select' },
     }
-  },
-  decorators: [
-    (Story, context) => (
-      <Wrapper context={context}>
-        <Story />
-      </Wrapper>
-    ),
-  ],
-  
+  },  
 };
 export default meta;
 

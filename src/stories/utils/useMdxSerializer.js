@@ -18,23 +18,23 @@ function getMDX(args) {
     if (args.component.render) {
         componentName = args.component.render.name
     } else {
-        componentName =args.component.name
+        componentName = args.component.name
     }
 
     console.log('getMDX:args: ', args);
-    if (args.args.children) {    
-    return (
-      '<' + componentName + getAttributes(args.args) + '>\n' +
-      args.args.children
-      + '\n</' + componentName + '>'
-    )
+    if (args.args.children) {
+        return (
+            '<' + componentName + getAttributes(args.args) + '>\n' +
+            args.args.children
+            + '\n</' + componentName + '>'
+        )
     } else {
         return (
             '<' + componentName + getAttributes(args.args) + '/>'
-          )   
+        )
     }
-  }
-  
+}
+
 function getAttributes(args) {
     let result = '';
     for (const [key, value] of Object.entries(args)) {
@@ -115,7 +115,13 @@ function Wrapper({ context, children }) {
 
     if (context && context.component.render) {
         const Story = children
-        return <Story/>
+        // return <Story/>
+        return (
+        <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <MDXProvider>{children}</MDXProvider>
+        </ThemeProvider>
+        )
     } else {
         mdx = getMDX(context);
     }
@@ -153,12 +159,12 @@ function Wrapper({ context, children }) {
     } else {
         console.log('Wrapper:complete');
         return (
-        <ThemeProvider theme={theme}>
-            <CssBaseline />
-            <MDXProvider>
-                <MDXRemote compiledSource={mdxContent.compiledSource} components={mdComponents} />
-            </MDXProvider>
-        </ThemeProvider>
+            <ThemeProvider theme={theme}>
+                <CssBaseline />
+                <MDXProvider>
+                    <MDXRemote compiledSource={mdxContent.compiledSource} components={mdComponents} />
+                </MDXProvider>
+            </ThemeProvider>
         )
     }
 
