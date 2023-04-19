@@ -1,12 +1,11 @@
 "use client";
 import React from 'react';
-import { Banner } from './Banner';
+import { Dummy } from './Dummy';
 import { StoryObj, Meta } from '@storybook/react';
-import { Wrapper } from './utils/useMdxSerializer.js'
 
-const meta: Meta<typeof Banner> = {
-  title: 'Components/Banner',
-  component: Banner,
+const meta: Meta<typeof Dummy> = {
+  title: 'Components/Dummy',
+  component: Dummy,
   tags: ['autodocs'],
   argTypes: {
     color: {
@@ -14,18 +13,11 @@ const meta: Meta<typeof Banner> = {
       control: { type: 'select' },
     }
   },
-  decorators: [
-    (Story, context) => (
-      <Wrapper context={context}>
-        <Story />
-      </Wrapper>
-    ),
-  ],
   
 };
 export default meta;
 
-type Story = StoryObj<typeof Banner>;
+type Story = StoryObj<typeof Dummy>;
 
 export const Primary: Story = {
   args: {

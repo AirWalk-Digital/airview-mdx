@@ -10,9 +10,11 @@ import { MDXRemote } from 'next-mdx-remote';
 import remarkGfm from "remark-gfm";
 import remarkUnwrapImages from 'remark-unwrap-images';
 
+import {getMDX} from '../src/stories/utils/useMdxSerializer'
+
 const preview: Preview = {
-  
-    
+
+
   parameters: {
     actions: { argTypesRegex: "^on[A-Z].*" },
     controls: {
@@ -28,7 +30,6 @@ const preview: Preview = {
         // language: 'md',
         type: 'code',
         transform: (code,args) => {
-          
           return (
             getMDX(args)
             ) 
@@ -36,83 +37,94 @@ const preview: Preview = {
       }
     }
   },
-  
+
   decorators: [
-    (Story: StoryObj, context) => {
-      const [mdxContent, setMdxContent] = useState(null);
+    // (Story: StoryObj, context) => {
+    //   const [mdxContent, setMdxContent] = useState(null);
 
-      console.log('context:', context)
-      const { args } = context;
-      const { children } = args;
-      let NotMDX = null;
-      let mdx = null;
+    //   console.log('context:', context)
+    //   const { args } = context;
+    //   const { children } = args;
+    //   let NotMDX = null;
+    //   let mdx = null;
 
-      if (context && context.component.render) {
-        NotMDX = context.component.render
-      } else {
-      mdx = getMDX(context);
-      }
+    //   if (context && context.component.render) {
+    //     NotMDX = context.component.render
+    //   } else {
+    //   mdx = getMDX(context);
+    //   }
 
-      useEffect(() => {
-        const serializeMdx = async () => {
-          const MDXoptions = {
-            remarkPlugins: [remarkGfm, remarkUnwrapImages],
-            format: 'mdx',
-            development: process.env.NODE_ENV === 'development',
-          };
-          try {
-            const mdxSource = await serialize(mdx, { scope: {}, mdxOptions: { ...MDXoptions }, parseFrontmatter: true });
-            setMdxContent(mdxSource);
+    //   useEffect(() => {
+    //     const serializeMdx = async () => {
+    //       const MDXoptions = {
+    //         remarkPlugins: [remarkGfm, remarkUnwrapImages],
+    //         format: 'mdx',
+    //         development: process.env.NODE_ENV === 'development',
+    //       };
+    //       try {
+    //         const mdxSource = await serialize(mdx, { scope: {}, mdxOptions: { ...MDXoptions }, parseFrontmatter: true });
+    //         setMdxContent(mdxSource);
 
-          } catch (error) {
-            console.log('Error in serialize : ', error);
-          }
-        };
-        serializeMdx();
-      }, [mdx]);
+    //       } catch (error) {
+    //         console.log('Error in serialize : ', error);
+    //       }
+    //     };
+    //     serializeMdx();
+    //   }, [mdx]);
 
-      if (NotMDX) {
-        return  <ThemeProvider theme={theme}>
-        <CssBaseline />
-          <MDXProvider>
-            <Story/>
-          </MDXProvider>
-        </ThemeProvider>;
-      }
+    //   if (NotMDX) {
+    //     return  <ThemeProvider theme={theme}>
+    //     <CssBaseline />
+    //       <MDXProvider>
+    //         <Story/>
+    //       </MDXProvider>
+    //     </ThemeProvider>;
+    //   }
 
-      if (!mdxContent) {
-        return <MDXProvider><h1>....loading</h1></MDXProvider>;
-      } else {
+    //   if (!mdxContent) {
+    //     return <MDXProvider><h1>....loading</h1></MDXProvider>;
+    //   } else {
 
-        // return <MDXProvider ><HeaderCard {...args}><MDXRemote {...mdxContent} components={mdComponents} /></HeaderCard></MDXProvider>;
-        return  <ThemeProvider theme={theme}>
-        <CssBaseline />
-          <MDXProvider>
-            <MDXRemote compiledSource={mdxContent.compiledSource} components={mdComponents} />
-          </MDXProvider>
-        </ThemeProvider>;
-      }
-    },
+    //     // return <MDXProvider ><HeaderCard {...args}><MDXRemote {...mdxContent} components={mdComponents} /></HeaderCard></MDXProvider>;
+    //     return  <ThemeProvider theme={theme}>
+    //     <CssBaseline />
+    //       <MDXProvider>
+    //         <MDXRemote compiledSource={mdxContent.compiledSource} components={mdComponents} />
+    //       </MDXProvider>
+    //     </ThemeProvider>;
+    //   }
+    // },
+
+
+    // (Story: StoryObj, context) => {
+    //   return (<ThemeProvider theme={theme}>
+    //     <CssBaseline />
+    //     <MDXProvider>
+    //       <Story />
+    //     </MDXProvider>
+    //   </ThemeProvider>);
+    // }
+
   ],
 };
 
-function getMDX(args: Args): string {
-  return (
-  '<' + args.component.name + getAttributes(args.args) +'>\n'+
-  args.args.children
-  + '\n</' + args.component.name + '>'
-  )
-}
+// function getMDX(args: Args): string {
+//   return (
+//     '<' + args.component.name + getAttributes(args.args) + '>\n' +
+//     args.args.children
+//     + '\n</' + args.component.name + '>'
+//   )
+// }
 
-function getAttributes(args: Args): string {
-  let result = '';
-  for (const [key, value] of Object.entries(args)) {
-    if (value !== undefined && value !== null && key !== 'children') {
-      result += ` ${key}="${value}"`;
-    }
-  }
-  console.log('getAttributes :', result)
-  return result;
-}
+// function getAttributes(args: Args): string {
+//   let result = '';
+//   for (const [key, value] of Object.entries(args)) {
+//     if (value !== undefined && value !== null && key !== 'children') {
+//       result += ` ${key}="${value}"`;
+//     }
+//   }
+//   console.log('getAttributes :', result)
+//   return result;
+// }
 
 export default preview;

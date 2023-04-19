@@ -1,5 +1,6 @@
 import React from 'react';
 import Box from '@mui/material/Box';
+import PropTypes from 'prop-types';
 
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -132,4 +133,10 @@ const Banner = ({ children, sx = {}, ...props }) => {
     )
 }
 
+Banner.propTypes = {
+    /** MDX content passed into the component */
+    children: PropTypes.string.isRequired,
+    /** MaterialUI sx prop for styling */
+    sx: PropTypes.string,
+};
 export { Banner };
