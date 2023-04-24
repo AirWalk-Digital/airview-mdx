@@ -11,6 +11,36 @@ import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 
+export const SubHeader = ({ text = false, color='primary', image, sx = {}, ...props }) => {
+    const theme = useTheme();
+    const sxTheme = {
+        width: '100%',
+        // bgcolor: 'background.secondary',
+        bgcolor: theme.palette.background[color],
+        px: '25px',
+        py: '1%',
+        margin: '0px',
+        color: getContrastYIQ(theme.palette.background[color], theme),
+        h2: {
+            margin: '0px',
+            color: getContrastYIQ(theme.palette.background[color], theme)
+        },
+        code: {
+            bgcolor: 'unset',
+
+        }
+    }
+    return (
+        <Box sx={{ color: (sx.backgroundColor === undefined) ? getContrastYIQ(theme.palette.background[color], theme) : getContrastYIQ(sx.backgroundColor, theme), display: 'flex', ...sx, ...sxTheme }}>
+            <Box>
+                {text}
+            </Box>
+        </Box>
+    )
+
+}
+
+
 
 export const Banner = ({ text = false, bottom = false, children, sx = {}, ...props }) => {
     const theme = useTheme();
@@ -64,7 +94,7 @@ export const Banner = ({ text = false, bottom = false, children, sx = {}, ...pro
 }
 export const Header = ({ heading, sx = {}, ...props }) => {
     return (
-        <Box sx={{ height: '80px', px: "0px", mt: "15px", h1: { ml: '0', pt: '0.1%', mt: '0%', mb: '0.5%', pt: "0", ...sx } }}>
+        <Box sx={{ height: '80px', px: "0px", mt: "15px", h1: { ml: '0', mr: '0', pt: '0.1%', mt: '0%', mb: '0.5%', pt: "0", ...sx } }}>
             {heading && heading}
         </Box>
     )

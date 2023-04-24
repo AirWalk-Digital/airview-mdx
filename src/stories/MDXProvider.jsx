@@ -46,9 +46,11 @@ import { Nest } from './Nest';
 // import { Font } from './Styling';
 // import { MermaidDiagram } from "./Diagrams";
 
-// Layouts 
+// ---------- Layouts ---------
 import {Layout, Column, Item } from './Layouts';
 import { TitleSlide } from './Layout.TitleSlide';
+import { Slide } from './Layout.Slide';
+import Zoom from './Layout.Zoom';
 
 export const mdComponents = {
   h1: (props) => <Typography variant="h1">{props.children}</Typography>,
@@ -109,7 +111,9 @@ export const mdComponents = {
   // MermaidDiagram,
   // ------------ Layouts -----------
   TitleSlide,
-  Layout, Column, Item
+  Slide,
+  Layout, Column, Item,
+  Zoom
 };
 
 export default ({ children }) => (

@@ -2,7 +2,7 @@ import { TitleSlide } from './Layout.TitleSlide';
 import { StoryObj, Meta } from '@storybook/react';
 
 const meta: Meta<typeof TitleSlide> = {
-  title: 'Layouts/TitleSlide',
+  title: 'Slides/TitleSlide',
   component: TitleSlide,
   tags: ['autodocs'],
   argTypes: { format: { control: 'select', options: ['ppt', 'a4', 'storybook'] } },
@@ -15,7 +15,6 @@ export const Dark: Story = {
   args: {
     children: (
 `# Title
-
 subtitle
 `
     ),

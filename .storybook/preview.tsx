@@ -4,9 +4,9 @@ import React from 'react';
 
 import {getMDX, Wrapper} from './utils/mdxify';
 
+
+
 const preview: Preview = {
-
-
   parameters: {
     actions: { argTypesRegex: "^on[A-Z].*" },
     controls: {
