@@ -110,10 +110,11 @@ function Wrapper({ context, children }) {
 
     const [mdxContent, setMdxContent] = useState(null);
     console.log('Wrapper:children: ', children);
+    console.log('Wrapper:context: ', context);
 
     let mdx = null;
 
-    if (context && context.component.render) {
+    if (context && context.component && context.component.render) {
         const Story = children
         // return <Story/>
         return (

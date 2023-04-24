@@ -1,4 +1,4 @@
-import { TitleSlide } from './TitleSlide';
+import { TitleSlide } from './Layout.TitleSlide';
 import { StoryObj, Meta } from '@storybook/react';
 
 const meta: Meta<typeof TitleSlide> = {
