@@ -2,7 +2,7 @@ import type { Preview } from "@storybook/react";
 import React from 'react';
 
 
-import {getMDX, Wrapper} from '../src/stories/utils/useMdxSerializer'
+import {getMDX, Wrapper} from './utils/mdxify';
 
 const preview: Preview = {
 
@@ -20,7 +20,7 @@ const preview: Preview = {
         type: 'code',
         transform: (code,args) => {
           return (
-            getMDX(args)
+            getMDX(args).replace(/&quot;/g, '"')
             ) 
         }
       }
