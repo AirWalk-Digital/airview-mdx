@@ -35,7 +35,7 @@ import { Chevrons } from './Chevrons';
 import { Roadmap } from './Roadmap';
 import { Banner } from './Banner';
 
-import { Dummy } from './Dummy';
+// import { Dummy } from './Dummy';
 
 import { Icon } from './Images';
 import { TechRadar } from './TechRadar'
@@ -97,7 +97,7 @@ export const mdComponents = {
   // Footer,
   Insights, Chevrons, Roadmap,
   Banner,
-  Dummy,
+  // Dummy,
   // FaIcon, 
   Icon, 
   TechRadar,

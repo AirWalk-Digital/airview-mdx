@@ -19,8 +19,7 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
-
-
+import * as d3 from 'd3';
 export function radar_visualization(config) {
 
     // custom random number generator, to make random sequence reproducible

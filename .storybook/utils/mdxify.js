@@ -4,12 +4,12 @@ import { serialize } from 'next-mdx-remote/serialize';
 import remarkGfm from "remark-gfm";
 import remarkUnwrapImages from 'remark-unwrap-images';
 import { MDXRemote } from 'next-mdx-remote';
-import MDXProvider, { mdComponents } from '../MDXProvider';
+import MDXProvider, { mdComponents } from '../../src/stories/MDXProvider';
 
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 
-import { theme } from '../../theme';
+import { theme } from '../../src/theme';
 
 
 function getMDX(args) {
@@ -21,7 +21,7 @@ function getMDX(args) {
         componentName = args.component.name
     }
 
-    console.log('getMDX:args: ', args);
+    console.log('getMDX:args: ', args.args);
     if (args.args.children) {
         return (
             '<' + componentName + getAttributes(args.args) + '>\n' +
@@ -35,7 +35,7 @@ function getMDX(args) {
     }
 }
 
-function getAttributes(args) {
+function getAttributesOld(args) {
     let result = '';
     for (const [key, value] of Object.entries(args)) {
         if (value !== undefined && value !== null && key !== 'children') {
@@ -45,6 +45,21 @@ function getAttributes(args) {
     return result;
 }
 
+function getAttributes(args) {
+    let result = '';
+    if (Array.isArray(args)) {
+        result += args.map(getAttributes).join(' ');
+    } else if (typeof args === 'object') {
+        for (const [key, value] of Object.entries(args)) {
+            if (value !== undefined && value !== null && key !== 'children') {
+                const escapedKey = String(key).replace(/"/g, '&quot;');
+                const valueString = Array.isArray(value) ? JSON.stringify(value).replace(/"/g, "&quot;") : String(value).replace(/"/g, '&quot;');
+                result += ` ${escapedKey}="${valueString}"`;
+            }
+        }
+    }
+    return result;
+}
 function useMdxSerializer(componentName, componentArgs) {
 
     const [mdxContent, setMdxContent] = useState(null);
