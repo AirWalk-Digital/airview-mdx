@@ -10,7 +10,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 
 import { theme } from '../../src/theme';
-
+import  Zoom from '../../src/stories/Layout.Zoom'
 
 function getMDX(args) {
 
@@ -129,6 +129,9 @@ function Wrapper({ context, children }) {
 
     let mdx = null;
 
+    let pageSize = { width: 1920, height: 1080 };
+    let zoom = null;
+
     if (context && context.component && context.component.render) {
         const Story = children
         // return <Story/>
@@ -138,9 +141,23 @@ function Wrapper({ context, children }) {
             <MDXProvider>{children}</MDXProvider>
         </ThemeProvider>
         )
+    } else if (context && context.args && context.args.zoom) {
+        if (context.args.zoom == 'a4') {
+            pageSize = { height:1920, width:1080}
+          } else if (context.args.zoom == 'storybook') {
+            pageSize = { width:800, height:600}
+          }
+          zoom = context.args.zoom
+          mdx = `<Zoom maxWidth='${parseInt(pageSize.width)}' width='${parseInt(pageSize.width)}' maxHeight='${parseInt(pageSize.height)}' height='${parseInt(pageSize.height)}' sx={{ maxWidth: '100vw', maxHeight: '100vh' }}><div style={{ border: '2px solid grey', padding: '0px' }}>${getMDX(context)}</div></Zoom>`;
+          
     } else {
-        mdx = getMDX(context);
+        mdx = getMDX(context);  
     }
+
+
+    // <Zoom maxWidth={parseInt(pageSize.width)} width={parseInt(pageSize.width)} maxHeight={parseInt(pageSize.height)} height={parseInt(pageSize.height)} sx={{ maxWidth: '100vw', maxHeight: '100vh' }}>
+
+
     // let compiledSource = null;
 
     // if (componentArgs.children && componentArgs.children.component) {
@@ -178,7 +195,7 @@ function Wrapper({ context, children }) {
             <ThemeProvider theme={theme}>
                 <CssBaseline />
                 <MDXProvider>
-                    <MDXRemote compiledSource={mdxContent.compiledSource} components={mdComponents} />
+                    <MDXRemote compiledSource={mdxContent.compiledSource} components={mdComponents} />    
                 </MDXProvider>
             </ThemeProvider>
         )
