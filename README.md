@@ -23,3 +23,10 @@ npm run storybook
 
 Open [http://localhost:6006](http://localhost:6006) with your browser to see the result.
 
+
+
+const github = 'airwalk_patterns'
+const path = '/blah'
+
+
+<TechRadar data=getData('github', 'file.json')/>

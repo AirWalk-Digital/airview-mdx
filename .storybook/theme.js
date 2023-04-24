@@ -4,7 +4,7 @@ import logo from './airwalk-logo.png';
 export default create({
   base: 'light',
   brandTitle: 'Airview MDX Deck Storybook',
-  brandUrl: 'https://example.com',
+  brandUrl: 'https://airwalkreply.com',
   brandImage: logo,
   brandTarget: '_self',
 });

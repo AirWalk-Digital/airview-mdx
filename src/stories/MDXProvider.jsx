@@ -48,7 +48,7 @@ import { Nest } from './Nest';
 
 // Layouts 
 import {Layout, Column, Item } from './Layouts';
-import { TitleSlide } from './TitleSlide';
+import { TitleSlide } from './Layout.TitleSlide';
 
 export const mdComponents = {
   h1: (props) => <Typography variant="h1">{props.children}</Typography>,
