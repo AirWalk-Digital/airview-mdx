@@ -25,10 +25,9 @@ import Alert from '@mui/material/Alert';
 // 3rd Party Components
 import { Mermaid } from 'mdx-mermaid/Mermaid';
 
-
 // Custom components
 
-// import { Header, Banner, Footer } from './HeaderFooter';
+import { Header, Footer } from './Layout.HeaderFooter';
 // import { InsightTable, Insight, ChevronProcess, ChevronProcessTable, StatementBanner, Roadmap } from './Playback';
 import { Insights } from './Insights';
 import { Chevrons } from './Chevrons';
@@ -39,6 +38,7 @@ import { Banner } from './Banner';
 
 import { Icon } from './Images';
 import { TechRadar } from './TechRadar'
+import { BPMN } from './BPMN'
 // import {FaIcons, CustomIcons} from './Images.jsx';
 // import { ProgressTable } from './Tables.jsx';
 import { HeaderCard } from './HeaderCard';
@@ -92,15 +92,16 @@ export const mdComponents = {
   // ------- 3rd Party Components --------
   Mermaid,
   // custom component
-  // Header,
+  Header,
   // Banner,
-  // Footer,
+  Footer,
   Insights, Chevrons, Roadmap,
   Banner,
   // Dummy,
   // FaIcon, 
   Icon, 
   TechRadar,
+  BPMN,
   // FaIcons, CustomIcons
   // ProgressTable,
   HeaderCard, Nest,

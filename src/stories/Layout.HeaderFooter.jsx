@@ -70,7 +70,7 @@ export const Header = ({ heading, sx = {}, ...props }) => {
     )
 }
 
-export const Footer = ({ children, tagline='technology, done right', company='airwalkreply.com', theme = useTheme(), sx = {}, ...props }) => (
+export const Footer = ({ children, tagline='Technology, done right', company='airwalkreply.com', theme = useTheme(), sx = {}, ...props }) => (
     <TableContainer sx={{ display: 'flex', color: theme.palette.text.main, width: '100%', height: '60px', bottom: '5px' }}>
         <Table sx={{ borderCollapse: "unset", border: "unset", width: '100%', tableLayout: 'fixed' }}>
             <TableBody>
