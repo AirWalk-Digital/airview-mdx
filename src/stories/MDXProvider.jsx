@@ -38,7 +38,7 @@ import { Banner } from './Banner';
 
 import { Icon } from './Images';
 import { TechRadar } from './TechRadar'
-import { BPMN } from './BPMN'
+// import { BPMN } from './BPMN'
 // import {FaIcons, CustomIcons} from './Images.jsx';
 // import { ProgressTable } from './Tables.jsx';
 import { HeaderCard } from './HeaderCard';
@@ -50,7 +50,7 @@ import { Nest } from './Nest';
 import {Layout, Column, Item } from './Layouts';
 import { TitleSlide } from './Layout.TitleSlide';
 import { Slide } from './Layout.Slide';
-import Zoom from './Layout.Zoom';
+import { Zoom } from './Layout.Zoom';
 
 export const mdComponents = {
   h1: (props) => <Typography variant="h1">{props.children}</Typography>,
@@ -103,7 +103,7 @@ export const mdComponents = {
   // FaIcon, 
   Icon, 
   TechRadar,
-  BPMN,
+  // BPMN,
   // FaIcons, CustomIcons
   // ProgressTable,
   HeaderCard, Nest,
