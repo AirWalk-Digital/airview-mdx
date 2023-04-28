@@ -1,4 +1,4 @@
-import {useRef, useLayoutEffect, useEffect, useState, useCallback} from 'react';
+import React, {useRef, useLayoutEffect, useEffect, useState, useCallback} from 'react';
 import Box from '@mui/material/Box';
 
 // import PropTypes from 'prop-types';
@@ -132,4 +132,4 @@ const Zoom = ({
   );
 };
 
-export default Zoom;
+export { Zoom }

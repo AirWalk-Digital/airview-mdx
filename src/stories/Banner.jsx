@@ -135,8 +135,8 @@ const Banner = ({ children, sx = {}, ...props }) => {
 
 Banner.propTypes = {
     /** MDX content passed into the component */
-    children: PropTypes.string.isRequired,
+    children: PropTypes.node.isRequired,
     /** MaterialUI sx prop for styling */
-    sx: PropTypes.string,
+    sx: PropTypes.object,
 };
 export { Banner };
