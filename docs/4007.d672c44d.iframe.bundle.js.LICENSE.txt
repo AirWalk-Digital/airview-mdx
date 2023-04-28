@@ -1,0 +1,1 @@
+/*! bpmn-js - bpmn-navigated-viewer v13.0.4 | Copyright (c) 2014-present, camunda Services GmbH | bpmn.io/license */
