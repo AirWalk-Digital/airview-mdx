@@ -1,5 +1,13 @@
 
 function getContrastYIQ(hexcolor, theme){
+
+    if (!hexcolor) {
+      console.log('airview-mdx:getContrastYIQ:ERROR: hexcolor is undefined')
+      return 'red'
+    }
+
+    console.log('mdx:getContrastYIQ: ', hexcolor)
+    console.log('mdx:theme: ', theme)
     if (typeof(hexcolor) === 'object') {
       hexcolor = hexcolor.toString(16);
     }
