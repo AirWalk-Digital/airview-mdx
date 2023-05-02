@@ -20,7 +20,7 @@ const config: StorybookConfig = {
       ...config.resolve.fallback,
       "os": false
     };
-    config.output.publicPath = '/airview-mdx/';
+    // config.output.publicPath = '/airview-mdx/';
     return config;
   }
 };

@@ -105,8 +105,8 @@ export const Footer = ({ children, tagline='Technology, done right', company='ai
         <Table sx={{ borderCollapse: "unset", border: "unset", width: '100%', tableLayout: 'fixed' }}>
             <TableBody>
                 <TableCell sx={{p: '0'}}>
-                    <Image alt='airwalk logo' src={'/logos/airwalk-logo.png'} height={60} width={200} style={{ objectFit: 'contain', marginLeft: "5%" }} />
-                    <Image alt='customer logo' src={'/logos/customer-logo.png'} height={60} width={200} style={{ objectFit: 'contain', marginLeft: "5%" }} />
+                    <Image alt='airwalk logo' src={'logos/airwalk-logo.png'} height={60} width={200} style={{ objectFit: 'contain', marginLeft: "5%" }} />
+                    <Image alt='customer logo' src={'logos/customer-logo.png'} height={60} width={200} style={{ objectFit: 'contain', marginLeft: "5%" }} />
                 </TableCell>
                 <TableCell sx={{ textAlign: 'center', color: theme.palette.text.main, p: '0'}}>{tagline}</TableCell>
                 <TableCell sx={{ textAlign: 'right', color: theme.palette.text.highlight, pr: '2.5%' }}>{company}</TableCell>
