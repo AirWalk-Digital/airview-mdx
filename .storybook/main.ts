@@ -14,11 +14,13 @@ const config: StorybookConfig = {
     autodocs: "tag",
   },
   staticDirs: ['../src/stories/assets'],
+  
   webpackFinal: async (config) => {
     config.resolve.fallback = {
       ...config.resolve.fallback,
       "os": false
     };
+    config.output.publicPath = '/airview-mdx/';
     return config;
   }
 };
