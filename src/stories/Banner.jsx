@@ -103,7 +103,7 @@ const Banner = ({ children, sx = {}, ...props }) => {
     }
     const statementTheme = {
         width: '100%',
-        backgroundColor: theme.palette.background.secondary,
+        backgroundColor: theme.palette.background.primary,
         px: '2.5%',
         py: '1%',
     }
