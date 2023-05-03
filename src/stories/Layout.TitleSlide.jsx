@@ -41,7 +41,7 @@ function getImageBrightness(imageSrc,callback) {
 
 export const TitleSlide = ({ format = 'ppt', background = 'image1.jpeg', children, sx = {}, props }) => {
   const [textColor, setTextColor] = useState(0)
-  const [awLogo, setAwLogo] = useState('logos/airwalk-logo-negative.png')
+  const [awLogo, setAwLogo] = useState('/logos/airwalk-logo-negative.png')
   let pageSize = { width:1920, height:1080}
   console.log('background : ', background)
   if (format == 'a4') {
@@ -58,7 +58,7 @@ export const TitleSlide = ({ format = 'ppt', background = 'image1.jpeg', childre
         setTextColor('text.invtext')
       } else {
         setTextColor('text.main')
-        setAwLogo('logos/airwalk-logo.png')
+        setAwLogo('/logos/airwalk-logo.png')
       }
       // console.log('brightness : ', brightness);
   }); 
@@ -93,7 +93,7 @@ export const TitleSlide = ({ format = 'ppt', background = 'image1.jpeg', childre
 
 return (
   <Box width={pageSize.width} height={pageSize.height}>
-<Image alt='background' src={'backgrounds/' + background} fill/>
+<Image alt='background' src={'/backgrounds/' + background} fill/>
   <Box sx={{ display: "flex", flexDirection: "column", height: "80%", width: "50%", alignItems: "left", position: "absolute", top: "5%", left: "5%" }}>
         <Box sx={{ filter: 'grayscale(1)', ...titleSlideSX , ...sx }}>
           {children}
@@ -107,7 +107,7 @@ return (
             
           </Box>
           <Box sx={{ mx: "2%" }}>
-          <Image alt='customer logo' src={'logos/customer-logo.png'} fill style={{objectFit: 'contain', marginLeft: "5%"}} />
+          <Image alt='customer logo' src={'/logos/customer-logo.png'} fill style={{objectFit: 'contain', marginLeft: "5%"}} />
           </Box>
 
         </Box>
