@@ -22,7 +22,7 @@ const Banner = ({ children, sx = {}, ...props }) => {
     children = children.filter(item => item !== "\n") //strip all the empty entries (\n)
     const theme = useTheme();
 
-    console.log('StatementBanner:children: ', children);
+    // console.log('StatementBanner:children: ', children);
     // let header = getContent('h3', children); // match any headings
     // let icon = getContent('p', header.children); // match any headings
     let faIcon = "";
@@ -108,13 +108,13 @@ const Banner = ({ children, sx = {}, ...props }) => {
         py: '1%',
     }
 
-      console.log(icon, header,text)
+      // console.log(icon, header,text)
     let padding = '0px';
     if (icon) {
         padding = '7px'
     }
-    console.log('StatementBanner:icon:type: ', type, ' :icon: ', icon);
-    console.log('StatementBanner:text: ', text);
+    // console.log('StatementBanner:icon:type: ', type, ' :icon: ', icon);
+    // console.log('StatementBanner:text: ', text);
     return (
         <Box sx={{ my: "0.5%" }}>
             {header && <Box sx={{ ...statementTheme, pt: '1%', pb: '1%', borderRadius: '8px' }}>{header}</Box>}

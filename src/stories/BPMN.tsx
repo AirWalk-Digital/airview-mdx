@@ -29,26 +29,26 @@ const BPMN = ({ xml }) => {
             if (err) {
                 console.error('Failed to import BPMN diagram', err);
             } else {
-                console.log('BPMN:bpmnViewer :', bpmnViewer);
+                // console.log('BPMN:bpmnViewer :', bpmnViewer);
                 const canvas = bpmnViewer.get('canvas');
 
                 const svg = containerRef.current.querySelector('svg');
-                console.log('BPMN:svg :', svg);
+                // console.log('BPMN:svg :', svg);
 
                 // Use the BpmnJS API to get the viewBox and set the attributes accordingly
                 const viewBox = canvas.viewbox();
-                console.log('BPMN:viewBox :', viewBox);
-                console.log('BPMN:height: ', viewBox.inner.height);
+                // console.log('BPMN:viewBox :', viewBox);
+                // console.log('BPMN:height: ', viewBox.inner.height);
                 viewBox.inner.y = 0;
                 viewBox.inner.x = 0;
 
 
                 // Set the updated viewBox using BpmnJS API's canvas.viewbox() method
                 canvas.viewbox(viewBox);
-                console.log('BPMN:canvas :', canvas);
+                // console.log('BPMN:canvas :', canvas);
                 // Set the zoom level to fit the viewport
                 //   canvas.zoom('fit-viewport', 'auto');
-                console.log('BPMN:size: ', canvas.getSize())
+                // console.log('BPMN:size: ', canvas.getSize())
 
                 // Set the zoom level to fit the viewport
                 // canvas.zoom('fit-viewport', 'auto');

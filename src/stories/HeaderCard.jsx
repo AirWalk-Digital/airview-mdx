@@ -11,7 +11,7 @@ const HeaderCard = ({ children, color = 'secondary', sx }) => {
     const theme = useTheme();
     let heading = '';
     let subheading = '';
-    console.log('HeaderCard : ', children)
+    // console.log('HeaderCard : ', children)
     if (children && Object.keys(children).length === 0 && children.constructor === Object) { children = '' } else {
         if (Array.isArray(children)) { // multiple lines
             if (children[0].type.name === 'h1') {
