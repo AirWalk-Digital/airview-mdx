@@ -43,7 +43,7 @@ export const TitleSlide = ({ format = 'ppt', background = 'image1.jpeg', childre
   const [textColor, setTextColor] = useState(0)
   const [awLogo, setAwLogo] = useState('/logos/airwalk-logo-negative.png')
   let pageSize = { width:1920, height:1080}
-  console.log('background : ', background)
+  // console.log('background : ', background)
   if (format == 'a4') {
     pageSize = { height:1920, width:1080}
   } else if (format == 'storybook') {

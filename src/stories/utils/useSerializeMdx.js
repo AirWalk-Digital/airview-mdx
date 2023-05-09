@@ -17,7 +17,7 @@ export default function useSerializeMdx(mdx) {
         const mdxSource = await serialize(mdx, { scope: {}, mdxOptions: { ...MDXoptions }, parseFrontmatter: true });
         setMdxContent(mdxSource);
       } catch (error) {
-        console.log('Error in serialize : ', error);
+        // console.log('Error in serialize : ', error);
       }
     };
     serializeMdx();

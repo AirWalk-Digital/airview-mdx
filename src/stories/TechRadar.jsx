@@ -12,7 +12,7 @@ const TechRadar = ({ title = 'blank', width = '1450', height = '1000', data_quad
   data_rings = JSON.parse(data_rings);
   data_entries = JSON.parse(data_entries);
   
-  console.log('TechRadar:props: ', props);
+  // console.log('TechRadar:props: ', props);
   // console.log('TechRadar:data_entries: ', data_entries);
 
   const [isFullScreen, setIsFullScreen] = useState(false);
@@ -26,8 +26,8 @@ const TechRadar = ({ title = 'blank', width = '1450', height = '1000', data_quad
   };
 
   useEffect(() => {
-    console.log('TechRadar: Rendering....')
-    console.log('TechRadar:data_entries: ', data_entries);
+    // console.log('TechRadar: Rendering....')
+    // console.log('TechRadar:data_entries: ', data_entries);
     const radarData = {
       svg_id: "radar",
       width: 1450,

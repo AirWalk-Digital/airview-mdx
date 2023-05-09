@@ -53,7 +53,7 @@ let slideProps = '';
 
 function Slide({ children, id, className }) {
 
-  console.log('Slide:children: ', children)
+  // console.log('Slide:children: ', children)
 
   if (children && Array.isArray(children)) {
   children.forEach(child => {

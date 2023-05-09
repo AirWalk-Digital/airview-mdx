@@ -103,7 +103,7 @@ const Chevrons = ({ children, minWidth = '20%', maxWidth = '30em', sx = {}, ...p
         let list = React.Children.toArray(children.props.children);
         list = list.filter(item => item !== "\n") //strip all the empty entries (\n)
 
-        console.log('ChevronProcessTable : ', list);
+        // console.log('ChevronProcessTable : ', list);
         
         return (
 

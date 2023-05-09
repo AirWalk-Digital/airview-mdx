@@ -105,7 +105,7 @@
     function log(msg) {
   
       if (get('debug')) {
-        console.log(msg);
+        // console.log(msg);
       }
     }
   
@@ -246,7 +246,7 @@
   
       if (duration > get('maxDuration')) {
         // Log a message even when debug is false
-        console.log('BackgroundCheck - Killed');
+        // console.log('BackgroundCheck - Killed');
         removeClasses();
         destroy();
       }

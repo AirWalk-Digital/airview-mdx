@@ -21,7 +21,7 @@ function getMDX(args) {
         componentName = args.component.name
     }
 
-    console.log('getMDX:args: ', args.args);
+    // console.log('getMDX:args: ', args.args);
     if (args.args.children) {
         return (
             '<' + componentName + getAttributes(args.args) + '>\n' +
@@ -66,9 +66,9 @@ function useMdxSerializer(componentName, componentArgs) {
 
     let mdx = null;
 
-    console.log('useMdxSerializer:componentName: ', componentName)
+    // console.log('useMdxSerializer:componentName: ', componentName)
 
-    console.log('useMdxSerializer:componentArgs: ', componentArgs)
+    // console.log('useMdxSerializer:componentArgs: ', componentArgs)
     // const { args } = mdx;
     // const { children } = args;
     let compiledSource = null;
@@ -89,31 +89,31 @@ function useMdxSerializer(componentName, componentArgs) {
                 development: process.env.NODE_ENV === 'development',
             };
             try {
-                console.log('useMdxSerializer:serializeMdx');
+                // console.log('useMdxSerializer:serializeMdx');
                 const mdxSource = await serialize(mdx, { scope: {}, mdxOptions: { ...MDXoptions }, parseFrontmatter: true });
-                console.log('useMdxSerializer:serializeMdx', mdxSource);
+                // console.log('useMdxSerializer:serializeMdx', mdxSource);
 
                 setMdxContent(mdxSource);
 
             } catch (error) {
-                console.log('useMdxSerializer:serializeMdx:Error ', error);
+                // console.log('useMdxSerializer:serializeMdx:Error ', error);
             }
         };
-        console.log('useMdxSerializer:useEffect');
+        // console.log('useMdxSerializer:useEffect');
         // renderMDX();
         serializeMdx();
     }, [mdx]);
 
 
     if (compiledSource) { // the content is already processed
-        console.log('useMdxSerializer:return:pre_compiled', compiledSource);
+        // console.log('useMdxSerializer:return:pre_compiled', compiledSource);
         return { compiledSource: compiledSource, loading: false, format: 'mdx' };
     } else if (!mdxContent) {
-        console.log('useMdxSerializer:return: waiting....');
+        // console.log('useMdxSerializer:return: waiting....');
         return { compiledSource: null, loading: true, format: 'compiled' };
     } else {
         const mdxRemote = <MDXRemote compiledSource={mdxContent.compiledSource} components={mdComponents} />
-        console.log('useMdxSerializer:return:compiled', mdxRemote);
+        // console.log('useMdxSerializer:return:compiled', mdxRemote);
         return { compiledSource: mdxRemote, loading: false, format: 'compiled' };
     }
 
@@ -124,8 +124,8 @@ function useMdxSerializer(componentName, componentArgs) {
 function Wrapper({ context, children }) {
 
     const [mdxContent, setMdxContent] = useState(null);
-    console.log('Wrapper:children: ', children);
-    console.log('Wrapper:context: ', context);
+    // console.log('Wrapper:children: ', children);
+    // console.log('Wrapper:context: ', context);
 
     let mdx = null;
 
@@ -180,17 +180,17 @@ function Wrapper({ context, children }) {
                 setMdxContent(mdxSource);
 
             } catch (error) {
-                console.log('Wrapper:serializeMdx:Error ', error);
+                // console.log('Wrapper:serializeMdx:Error ', error);
             }
         };
         serializeMdx();
     }, [mdx]);
 
     if (!mdxContent) {
-        console.log('Wrapper:return: waiting....');
+        // console.log('Wrapper:return: waiting....');
         return <h2>....loading</h2>;
     } else {
-        console.log('Wrapper:complete');
+        // console.log('Wrapper:complete');
         return (
             <ThemeProvider theme={theme}>
                 <CssBaseline />

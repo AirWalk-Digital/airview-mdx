@@ -56,8 +56,8 @@ const Icon = ({ children, type = 'fas', size = '75px', sx = {}, ...props }) => {
     children = children.slice(4)
   }
   let kiticon = "fa-kit fa-" + children
-  console.log('Icon:children: ', children)
-  console.log('Icon:kiticon: ', kiticon)
+  // console.log('Icon:children: ', children)
+  // console.log('Icon:kiticon: ', kiticon)
 
   if (children) {
     if (type === 'fak') {

@@ -6,7 +6,7 @@ export function getListFromContent(content) {
 
     
     content = content.filter(item => item !== "\n") //strip all the empty entries (\n)
-    console.log(content);
+    // console.log(content);
 
     
 
