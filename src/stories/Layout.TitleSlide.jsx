@@ -77,6 +77,16 @@ export const TitleSlide = ({ format = 'ppt', background = 'image1.jpeg', childre
       px: 0,
 
     },
+    h2: {
+      margin: '25px',
+      mt: '20%',
+      mb: '10%',
+      textAlign: 'left',
+      fontSize: '3rem',
+      fontWeight: 200,
+      color: textColor,
+      px: 0,
+    },
     span: {
       margin: '25px',
       textAlign: 'left',
@@ -85,6 +95,7 @@ export const TitleSlide = ({ format = 'ppt', background = 'image1.jpeg', childre
       mixBlendMode: 'difference'
     },
     p : {
+      fontSize: '2rem',
     },
     pre: {code : { span : {color: 'white'}}}
   };

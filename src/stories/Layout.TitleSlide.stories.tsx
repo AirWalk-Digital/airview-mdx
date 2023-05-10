@@ -14,8 +14,10 @@ type Story = StoryObj<typeof TitleSlide>;
 export const Dark: Story = {
   args: {
     children: (
-`# Title
-subtitle
+      `# Title
+  
+      ## subtitle
+      more text
 `
     ),
     background: 'image1.jpeg',
@@ -28,7 +30,8 @@ subtitle
       children: (
   `# Title
   
-  subtitle
+  ## subtitle
+  more text
   `
       ),
       background: 'image11.jpeg',
