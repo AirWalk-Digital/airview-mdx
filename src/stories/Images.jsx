@@ -6,12 +6,12 @@ import { useScript } from './utils/useScript';
 import {IconGallery, IconItem } from '@storybook/blocks';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
-// import { fab } from '@fortawesome/free-brands-svg-icons';
-// import { fas } from '@fortawesome/pro-solid-svg-icons';
-import { fas } from '@fortawesome/free-solid-svg-icons'
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import { fas } from '@fortawesome/pro-solid-svg-icons';
+// import { fas } from '@fortawesome/free-solid-svg-icons'
 
-// import { fal } from '@fortawesome/pro-light-svg-icons';
-// import { fass } from '@fortawesome/sharp-solid-svg-icons';
+import { fal } from '@fortawesome/pro-light-svg-icons';
+import { fass } from '@fortawesome/sharp-solid-svg-icons';
 
 
 // fal -> light
@@ -19,8 +19,8 @@ import { fas } from '@fortawesome/free-solid-svg-icons'
 // fab -> brands
 // fad -> duotone (pro only)
 // fass -> sharp
-// library.add(fab, fas, fal, fass);
-library.add(fas);
+library.add(fab, fas, fal, fass);
+// library.add(fas);
 
 
 // fal -> light
