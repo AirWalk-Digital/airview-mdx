@@ -5,9 +5,9 @@
 	"dockerFile": "Dockerfile.vscode",
 	"remoteUser": "vscode",
 	"mounts": [
-		"source=/home/ubuntu/vscode/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached"
-	  ],
-	"forwardPorts": [8080],
+		"source=/Users/robe/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached"
+	],
+	"forwardPorts": [6006],
 
 	"customizations": {
 		"codespaces": {
@@ -23,7 +23,7 @@
 		}
 	},
 	"postCreateCommand": "",
-	"postAttachCommand": {
-		"fix npm" : "rm -Rf /workspaces/airview-mdx/node_modules && ln -s /tmp/app/node_modules /workspaces/airview-mdx/node_modules"
-		
+	"postAttachCommand": "yarn"
+	// "postAttachCommand": {
+	// 	"fix npm" : "rm -Rf /workspaces/airview-mdx/node_modules && ln -s /tmp/app/node_modules /workspaces/airview-mdx/node_modules"
 }

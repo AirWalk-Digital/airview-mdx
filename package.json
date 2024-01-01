@@ -17,10 +17,14 @@
   "dependencies": {
     "@fontsource/heebo": "^4.5.15",
     "@fontsource/roboto-mono": "^4.5.10",
-    "@fortawesome/fontawesome-svg-core": "^6.4.0",
+    "@fortawesome/fontawesome-svg-core": "^6.5.1",
+    "@fortawesome/free-brands-svg-icons": "^6.5.1",
     "@fortawesome/free-regular-svg-icons": "^6.4.0",
-    "@fortawesome/free-solid-svg-icons": "^6.4.0",
+    "@fortawesome/free-solid-svg-icons": "^6.5.1",
+    "@fortawesome/pro-light-svg-icons": "^6.5.1",
+    "@fortawesome/pro-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@fortawesome/sharp-solid-svg-icons": "^6.5.1",
     "@mdx-js/react": "^2.3.0",
     "@mui/utils": "^5.12.0",
     "@types/node": "18.15.11",
@@ -68,10 +72,10 @@
     "storybook": "^7.0.4"
   },
   "peerDependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
     "@mui/material": "^5.12.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "@emotion/react": "^11.10.6",
-    "@emotion/styled": "^11.10.6"
+    "react-dom": "18.2.0"
   }
 }
