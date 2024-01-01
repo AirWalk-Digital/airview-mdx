@@ -12,6 +12,7 @@ import { fas } from '@fortawesome/pro-solid-svg-icons';
 
 import { fal } from '@fortawesome/pro-light-svg-icons';
 import { fass } from '@fortawesome/sharp-solid-svg-icons';
+import { useTheme } from '@mui/material/styles';
 
 
 // fal -> light
@@ -27,8 +28,8 @@ library.add(fab, fas, fal, fass);
 // fas -> solid
 // fab -> brands
 // fad -> duotone (pro only)
-const faTypes = ["fal", "fas", "fab", "fad", "fa-solid"];
-
+// const faTypes = ["fal", "fas", "fab", "fad", "fa-solid"];
+const faTypes = ["light", "solid", "brands", "thin", "custom"];
 
 const FaIcon = ({ children, text = "", sx = {}, ...props }) => {
   let icon = ""
@@ -41,9 +42,10 @@ const FaIcon = ({ children, text = "", sx = {}, ...props }) => {
 
 };
 
-const Icon = ({ children, type = 'fas', size = '75px', sx = {}, ...props }) => {
+const Icon = ({ children, type = 'light', size = '75px', color = 'primary', sx = {}, ...props }) => {
   useScript('https://kit.fontawesome.com/ff3b5aaa16.js');
-
+  const theme = useTheme();
+  const themeColor = theme.palette.background[color];
   // https://kit.fontawesome.com/ff3b5aaa16.js" crossOrigin="anonymous"
   let icon = ""
   if (children.props) {
@@ -60,14 +62,16 @@ const Icon = ({ children, type = 'fas', size = '75px', sx = {}, ...props }) => {
   // console.log('Icon:kiticon: ', kiticon)
 
   if (children) {
-    if (type === 'fak') {
-      icon = <Box sx={{ ...sx }}><i className={kiticon} style={{ width: size, height: size }}></i></Box>;
+    if (type === 'custom') {
+      icon = <Box sx={{ ...sx, color:themeColor }}><i className={kiticon} style={{ width: size, height: size }}></i></Box>;
       // console.log(icon)
     } else if (faTypes.indexOf(type) > -1) {
-      if (type = 'fas') {
-        icon = <Box sx={{ ...sx }}><FontAwesomeIcon icon={['fas', 'fa-' + children]} style={{ width: size, height: size }} /></Box>;
-      } else if (type = 'fal') {
-        icon = <Box sx={{ ...sx }}><FontAwesomeIcon icon={['fal', 'fa-' + children]} style={{ width: size, height: size }} /></Box>;
+      if (type === 'solid') {
+        icon = <Box sx={{ ...sx, color:themeColor }}><FontAwesomeIcon icon={['fa-solid', 'fa-' + children]} style={{ width: size, height: size }}  /></Box>;
+      } else if (type === 'light') {
+        icon = <Box sx={{ ...sx , color:themeColor }}><FontAwesomeIcon icon={['fa-light', 'fa-' + children]} style={{ width: size, height: size }} /></Box>;
+      } else if (type === 'thin') {
+        icon = <Box sx={{ ...sx, color:themeColor  }}><FontAwesomeIcon icon={['fa-thin', 'fa-' + children]} style={{ width: size, height: size }} /></Box>;
       }
     }
   };
