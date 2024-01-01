@@ -54,7 +54,7 @@ const Icon = ({ children, type = 'light', size = '75px', color = 'primary', sx =
   
 
   if (children.slice(0, 3) === "fak") {
-    type = "fak"
+    type = "custom"
     children = children.slice(4)
   }
   let kiticon = "fa-kit fa-" + children
@@ -171,8 +171,8 @@ const CustomIcons = () => {
 
 
   const iconkitmap = customIcons.map((el, i) => (
-    <IconItem name={'fak-' + el}>
-        <Icon size='30px' type='fak' sx={{ p: '5px', m: 'auto' , px: '0.5%' }}>{el}</Icon>
+    <IconItem name={el}>
+        <Icon size='30px' type='custom' sx={{ p: '5px', m: 'auto' , px: '0.5%' }}>{el}</Icon>
     </IconItem>
   ));
 
