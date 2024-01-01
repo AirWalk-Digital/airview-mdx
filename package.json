@@ -60,7 +60,7 @@
     "@storybook/react": "^7.0.4",
     "@storybook/testing-library": "^0.0.14-next.2",
     "babel-loader": "^9.1.2",
-    "eslint-plugin-storybook": "^0.6.11",
+    "eslint-plugin-storybook": "^0.6.15",
     "husky": "^8.0.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
