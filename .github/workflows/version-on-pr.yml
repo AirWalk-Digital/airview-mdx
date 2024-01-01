@@ -25,7 +25,13 @@ jobs:
     # - name: Test
     #   run: npm run test:unit --if-present
     - name: Build
-      run: npm run build-lib      
+      run: 
+        npm config set "@fortawesome:registry" https://npm.fontawesome.com/ && \
+        npm config set "//npm.fontawesome.com/:_authToken" $FONTAWESOME_NPM_AUTH_TOKEN && \
+        npm run build-lib
+
+      env:
+        FONTAWESOME_NPM_AUTH_TOKEN: ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
     - name: Release
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
