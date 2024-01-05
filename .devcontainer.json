@@ -7,14 +7,7 @@
 	"mounts": [
 		"source=/Users/robe/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached"
 	],
-	"forwardPorts": [6006],
-
-	"customizations": {
-		"codespaces": {
-		"openFiles": ["README.md", "src/pages/presentation.mdx"]
-		}
-	},
-		
+	"forwardPorts": [6006],	
 
 	"portsAttributes": {
 		"6006": {
