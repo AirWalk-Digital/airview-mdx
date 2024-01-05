@@ -2,10 +2,6 @@ import { createTheme } from '@mui/material/styles';
 import { deepmerge } from "@mui/utils";
 import { getContrastYIQ } from './stories/utils/colors';
 
-// import { createTheme } from '@material-ui/core/styles';
-
-// import { Roboto, Heebo } from '@next/font/google';
-
 import "@fontsource/heebo"; // Defaults to weight 400.
 import "@fontsource/heebo/200.css"; // Defaults to weight 400.
 
