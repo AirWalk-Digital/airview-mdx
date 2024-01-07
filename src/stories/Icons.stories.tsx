@@ -16,7 +16,7 @@ const meta: Meta<typeof Icon> = {
       control: { type: 'select' },
     },
     type: {
-      options: ["light", "solid", "brands", "thin", "custom"],
+      options: ["light", "solid", "brands", "thin", "custom", "fas", "fal", "far", "fab"],
       control: { type: 'select' },
       defaultValue: "light"
     }
@@ -36,6 +36,16 @@ export const Primary: Story = {
 }
 };
 
+
+export const OldTypeDefinition: Story = {
+  args : {
+    type: "fal",
+  children: (
+`star`
+  ),
+  color: 'secondary',
+}
+};
 
 export const Custom: Story = {
 args : {
