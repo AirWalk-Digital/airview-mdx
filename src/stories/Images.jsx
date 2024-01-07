@@ -28,7 +28,12 @@ library.add(fab, fas, fal, fass);
 // fas -> solid
 // fab -> brands
 // fad -> duotone (pro only)
-// const faTypes = ["fal", "fas", "fab", "fad", "fa-solid"];
+const faOldTypes = [
+  { "fal": { type: "light" } },
+  { "fas": { type: "solid" } },
+  { "fab": { type: "bold" } }
+];
+
 const faTypes = ["light", "solid", "brands", "thin", "custom"];
 
 const FaIcon = ({ children, text = "", sx = {}, ...props }) => {
@@ -59,36 +64,43 @@ const Icon = ({ children, type = 'light', size = '75px', color = 'primary', sx =
   }
   let kiticon = "fa-kit fa-" + children
   // console.log('Icon:children: ', children)
-  // console.log('Icon:kiticon: ', kiticon)
-
-  if (children) {
-    if (type === 'custom') {
-      icon = <Box sx={{ ...sx, color:themeColor }}><i className={kiticon} style={{ width: size, height: size }}></i></Box>;
-      // console.log(icon)
-    } else if (faTypes.indexOf(type) > -1) {
-      if (type === 'solid') {
-        icon = <Box sx={{ ...sx, color:themeColor }}><FontAwesomeIcon icon={['fa-solid', 'fa-' + children]} style={{ width: size, height: size }}  /></Box>;
-      } else if (type === 'light') {
-        icon = <Box sx={{ ...sx , color:themeColor }}><FontAwesomeIcon icon={['fa-light', 'fa-' + children]} style={{ width: size, height: size }} /></Box>;
-      } else if (type === 'thin') {
-        icon = <Box sx={{ ...sx, color:themeColor  }}><FontAwesomeIcon icon={['fa-thin', 'fa-' + children]} style={{ width: size, height: size }} /></Box>;
-      }
+  for (let i = 0; i < faOldTypes.length; i++) {
+    const faType = faOldTypes[i];
+    if (faType[type]) {
+      type = faType[type].type;
+      break;
     }
+  }
+    // console.log('Icon:kiticon: ', kiticon)
+
+    if (children) {
+      if (type === 'custom') {
+        icon = <Box sx={{ ...sx, color:themeColor }}><i className={kiticon} style={{ width: size, height: size }}></i></Box>;
+        // console.log(icon)
+      } else if (faTypes.indexOf(type) > -1) {
+        if (type === 'solid') {
+          icon = <Box sx={{ ...sx, color:themeColor }}><FontAwesomeIcon icon={['fa-solid', 'fa-' + children]} style={{ width: size, height: size }}  /></Box>;
+        } else if (type === 'light') {
+          icon = <Box sx={{ ...sx , color:themeColor }}><FontAwesomeIcon icon={['fa-light', 'fa-' + children]} style={{ width: size, height: size }} /></Box>;
+        } else if (type === 'thin') {
+          icon = <Box sx={{ ...sx, color:themeColor  }}><FontAwesomeIcon icon={['fa-thin', 'fa-' + children]} style={{ width: size, height: size }} /></Box>;
+        } 
+      } 
+    };
+    return (icon);
   };
-  return (icon);
-};
 
-const Team = ({ children }) => {
-  let content = getListFromContent(children);
+  const Team = ({ children }) => {
+    let content = getListFromContent(children);
 
-  return (<></>)
+    return (<></>)
 
-}
+  }
 
-const FaIcons = () => {
-  const icons = [
-    "cloud",
-    "shield-halved",
+  const FaIcons = () => {
+    const icons = [
+      "cloud",
+      "shield-halved",
     "people-arrows",
     "server",
     "building",

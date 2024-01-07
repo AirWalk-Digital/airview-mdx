@@ -68,5 +68,5 @@ args: {
   - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eu ipsum enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eu ipsum enim.
 `
   ),
-  splitter: 'false',
+  splitter: false,
 }};

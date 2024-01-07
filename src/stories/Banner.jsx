@@ -122,7 +122,7 @@ const Banner = ({ children, color='primary', sx = {}, ...props }) => {
             <Box sx={{ display: "flex", alignItems: "center", breakInside: 'avoid-column' }}>
                 {/* <Box sx={{ display: "flex", alignItems: "left", paddingLeft: "2.5%" }}> */}
                 {/* {faIcon && <FontAwesomeIcon icon={['fal', faIcon]} sx={{ pl: "2%", pr: '10px' }} style={{ width: "50px", height: "50px", paddingTop: '1%', paddingBottom: '1%', paddingLeft: '2%', paddingRight: '2%' }} />} */}
-                {icon && <Icon type={type} sx={{  color: theme.palette.background[color], pl: '5px', pr: '1%', pt: '1%' }} >{icon}</Icon>}
+                {icon && <Icon type={type} color={color} sx={{ pl: '5px', pr: '1%', pt: '1%' }} >{icon}</Icon>}
 
                 {/* <Box sx={{ variant: "styles.p", paddingLeft: "2.5%", minHeight: "100px", m: '1%' }}> */}
                 <Box sx={{ py: '0', pl: padding, minHeight: "50px", m: '0.5%', display: "flex", flexDirection: 'column', alignItems: "left" }}>
