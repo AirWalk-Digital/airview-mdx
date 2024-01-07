@@ -15,7 +15,7 @@ import { getContrastYIQ } from './utils/colors.js';
 
 import {getListContent, getMDXparts, faTypes} from './utils/mdxContent.js'
 
-const Roadmap = ({ children, minWidth = '20%', maxWidth = '30em', sx = {}, ...props }) => {
+const Roadmap = ({ children, minWidth = '20%', maxWidth = '30em', color='secondary', sx = {}, ...props }) => {
     let renderlist = "";
 
     let roadmap = [];
@@ -36,7 +36,7 @@ const Roadmap = ({ children, minWidth = '20%', maxWidth = '30em', sx = {}, ...pr
     }
     const roadmapitems = roadmap.map((item, i) => (
         <Grid item xs={3} sx={{ overflow:'hidden', ...sx}}>
-            <RoadmapItem title={item.title[0].props.children} content={item.content[0].props.children}/>
+            <RoadmapItem title={item.title[0].props.children} content={item.content[0].props.children} color={color}/>
         </Grid>
     ));
 
@@ -52,7 +52,7 @@ const Roadmap = ({ children, minWidth = '20%', maxWidth = '30em', sx = {}, ...pr
 
 };
 
-const RoadmapItem = ({ title, content, minWidth, maxWidth }, key = 0) => {
+const RoadmapItem = ({ title, content, minWidth, maxWidth, color='tertiary' }, key = 0) => {
 
     // console.log(content.toString());
     const theme = useTheme();
@@ -61,7 +61,7 @@ const RoadmapItem = ({ title, content, minWidth, maxWidth }, key = 0) => {
         <Box key={key} sx={{ display: "flex", flexDirection: 'column', py: "1%", fontSize: 'xsmall', minHeight: "5em", maxHeight: '10em' }}>
             
             <Box id='1' sx={{
-                backgroundColor: 'background.tertiary', borderTopLeftRadius: "10px", borderBottomLeftRadius: "10px",
+                backgroundColor: theme.palette.background[color], borderTopLeftRadius: "10px", borderBottomLeftRadius: "10px",
                 pr: '60px',
                 pl: '2%', 
                 py: '0.5%', 
@@ -74,7 +74,7 @@ const RoadmapItem = ({ title, content, minWidth, maxWidth }, key = 0) => {
                 textAlign: 'center',
                 my: '0',
                 // marginRight: '-30px',
-                color: getContrastYIQ(theme.palette.background.tertiary, theme),
+                color: getContrastYIQ(theme.palette.background[color], theme),
                 clipPath: 'polygon(0 0, calc(100% - 40px) 0, 100% 50%, calc(100% - 40px) 100%, 0 100%)',
                 em: {'&:before': {content: '"\\a "',whiteSpace: 'pre'}}
 
